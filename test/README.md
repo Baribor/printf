@@ -1,6 +1,6 @@
 # Test Directory
 
-Files in this directory is for test purpose only and will not be used in the projects evaluation.
+Files in this directory are for test purpose only and will not be used in the projects evaluation.
 
 Each `*main.c` file indicates what task in the project the file is used on to test.
 
