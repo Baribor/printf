@@ -18,6 +18,7 @@ int _putchar(char c);
 int _puts(char *s);
 int print_number(int n);
 int print_number_unsigned(unsigned int n);
+void print_bin(int *counter, unsigned int num);
 int _printf(const char *format, ...);
 void specifier_c(int *counter, void *value);
 void specifier_s(int *counter, void *value);
