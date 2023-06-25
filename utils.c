@@ -52,7 +52,7 @@ void _format(const char *s, va_list args, int *counter,
 {
 	char *argStr;
 	int argInt;
-	unsigned int argUnsignedInt;
+	unsigned long int argUnsignedInt;
 
 	switch (*s)
 	{
@@ -84,10 +84,40 @@ void _format(const char *s, va_list args, int *counter,
 	case 'c':
 	case 'p':
 	case 'b':
-		argUnsignedInt = va_arg(args, unsigned int);
+		argUnsignedInt = va_arg(args, unsigned long int);
 		action(counter, &argUnsignedInt);
 		break;
 	default:
 		break;
 	}
+}
+
+/**
+ * _isalpha - checks if a character is an alphabet.
+ *
+ * @a: character to check
+ * Return: 1 if is alphabet else 0
+ */
+int _isalpha(int a)
+{
+	if ((a >= 97 && a <= 122) || (a >= 67 && a <= 90))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+/**
+ * getROT13char - Gets the ROT13 of a char.
+ * @c: Char to look up
+ * Description: This function assumes any char
+ * passed to it is an alpha.
+ * Return: The ROT13 char.
+ */
+char getROT13char(char c)
+{
+	static const char *rot13Lower = "nopqrstuvwxyzabcdefghijklm";
+	static const char *rot13Upper = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	return (c < 65 ? rot13Upper[c - 65] : rot13Lower[c - 97]);
 }

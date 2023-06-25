@@ -7,9 +7,9 @@
  * @c: Pointer to character counter
  * Return: Void always.
  */
-void print_hex(unsigned int num, int lower, int *c)
+void print_hex(unsigned long int num, int lower, int *c)
 {
-	unsigned int d, r;
+	unsigned long int d, r;
 
 	if (num <= 9)
 	{
