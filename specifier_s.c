@@ -12,7 +12,7 @@ void specifier_s(int *counter, void *value)
 
 	if (!v)
 	{
-		*counter += _puts("(nil)");
+		*counter += _puts("(null)");
 		return;
 	}
 	*counter += _puts(v);
