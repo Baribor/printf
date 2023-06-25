@@ -100,7 +100,7 @@ void _format(const char *s, va_list args, int *counter,
  */
 int _isalpha(int a)
 {
-	if ((a >= 97 && a <= 122) || (a >= 67 && a <= 90))
+	if ((a >= 97 && a <= 122) || (a >= 65 && a <= 90))
 	{
 		return (1);
 	}
@@ -119,5 +119,5 @@ char getROT13char(char c)
 	static const char *rot13Lower = "nopqrstuvwxyzabcdefghijklm";
 	static const char *rot13Upper = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	return (c < 65 ? rot13Upper[c - 65] : rot13Lower[c - 97]);
+	return (c < 91 ? rot13Upper[c - 65] : rot13Lower[c - 97]);
 }
