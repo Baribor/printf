@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_c - Function to handle the c specifier
@@ -7,6 +8,6 @@
  */
 void specifier_c(int *counter, void *value)
 {
-	(void)counter;
-	(void)value;
+	char v = *((char *)value);
+	*counter += _putchar(v);
 }
