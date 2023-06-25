@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_s - Function to handle the s specifier
@@ -7,6 +8,12 @@
  */
 void specifier_s(int *counter, void *value)
 {
-	(void)counter;
-	(void)value;
+	char v = *((char *)value);
+
+	if (!v)
+	{
+		*counter += _puts("(nil)");
+		return;
+	}
+	*counter += _puts(v);
 }
