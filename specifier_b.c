@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_b - Function to handle the b custom specifier
@@ -7,6 +8,7 @@
  */
 void specifier_b(int *counter, void *value)
 {
-	(void)counter;
-	(void)value;
+	unsigned int v = *((unsigned int *)value);
+
+	print_bin(counter, v);
 }
