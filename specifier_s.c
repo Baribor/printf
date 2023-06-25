@@ -8,7 +8,7 @@
  */
 void specifier_s(int *counter, void *value)
 {
-	char v = *((char *)value);
+	char *v = (char *)value;
 
 	if (!v)
 	{
