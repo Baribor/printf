@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_u - Function to handle the u specifier
@@ -7,6 +8,8 @@
  */
 void specifier_u(int *counter, void *value)
 {
-	(void)counter;
-	(void)value;
+	unsigned int n;
+
+	n = *((unsigned int *)value);
+	*counter += print_number_unsign(n);
 }

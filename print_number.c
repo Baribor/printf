@@ -52,12 +52,12 @@ int print_number(int n)
 }
 
 /**
- * print_number_unsigned - print an unsigned integer.
+ * print_number_unsign - print an unsigned integer.
  *
  * @n: integer to print
  * Return: void
  */
-int print_number_unsigned(unsigned int n)
+int print_number_unsign(unsigned int n)
 {
 	int count = 0, i;
 	unsigned int digit, temp;

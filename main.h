@@ -17,7 +17,7 @@ typedef struct s
 int _putchar(char c);
 int _puts(char *s);
 int print_number(int n);
-int print_number_unsigned(unsigned int n);
+int print_number_unsign(unsigned int n);
 void print_bin(int *counter, unsigned int num);
 void print_hex(unsigned long int num, int lower, int *c);
 void print_oct(unsigned int num, int *c);

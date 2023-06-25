@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_o - Function to handle the c specifier
@@ -7,6 +8,8 @@
  */
 void specifier_o(int *counter, void *value)
 {
-	(void)counter;
-	(void)value;
+	unsigned int n;
+
+	n = *((unsigned int *)value);
+	print_oct(n, counter);
 }
