@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
  * specifier_percent - Function to handle the % specifier
@@ -7,6 +8,6 @@
  */
 void specifier_percent(int *counter, void *value)
 {
-	(void)counter;
 	(void)value;
+	*counter += _putchar('%');
 }
