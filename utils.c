@@ -15,10 +15,18 @@ void (*get_specifier_action(char s))(int *, void *)
 	specifier specifiers[] = {
 		{'c', specifier_c},
 		{'s', specifier_s},
+		{'S', specifier_S},
 		{'%', specifier_percent},
 		{'i', specifier_d_i},
 		{'d', specifier_d_i},
 		{'b', specifier_b},
+		{'p', specifier_p},
+		{'u', specifier_u},
+		{'x', specifier_x_X},
+		{'X', specifier_x_X},
+		{'o', specifier_o},
+		{'r', specifier_r},
+		{'R', specifier_R},
 		{'\0', NULL}};
 
 	while (specifiers[i].sym)
@@ -49,7 +57,10 @@ void _format(const char *s, va_list args, int *counter,
 	switch (*s)
 	{
 
+	case 'r':
+	case 'R':
 	case 's':
+	case 'S':
 		argStr = va_arg(args, char *);
 		action(counter, argStr);
 		break;
@@ -66,7 +77,12 @@ void _format(const char *s, va_list args, int *counter,
 		break;
 
 	/* Specifiers that work with unsigned integers */
+	case 'u':
+	case 'x':
+	case 'X':
+	case 'o':
 	case 'c':
+	case 'p':
 	case 'b':
 		argUnsignedInt = va_arg(args, unsigned int);
 		action(counter, &argUnsignedInt);
