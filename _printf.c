@@ -14,14 +14,22 @@ int _printf(const char *format, ...)
 	va_list args;
 	void (*action)(int *, void *);
 	int count = 0;
+	int isSpace = 0;
 
 	va_start(args, format);
 
 	while (*format)
 	{
+		isSpace = 0;
 		if (*format == '%')
 		{
-			action = get_specifier_action(*(++format));
+			if (format[1] == ' ')
+			{
+				isSpace = 1;
+				while (*(++format) && *format == ' ')
+					continue;
+			}
+			action = get_specifier_action(isSpace ? *format : *(++format));
 
 			if (action)
 			{
@@ -29,7 +37,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count += _putchar(*(--format));
+				count += isSpace ? _puts("% ") : _putchar('%');
 			}
 		}
 		else
