@@ -52,7 +52,8 @@ void _format(const char *s, va_list args, int *counter,
 {
 	char *argStr;
 	int argInt;
-	unsigned long int argUnsignedInt;
+	void *argVoid;
+	unsigned int argUnsignedInt;
 
 	switch (*s)
 	{
@@ -72,6 +73,7 @@ void _format(const char *s, va_list args, int *counter,
 	/* Specifiers that work with signed integers */
 	case 'i':
 	case 'd':
+	case 'c':
 		argInt = va_arg(args, int);
 		action(counter, &argInt);
 		break;
@@ -81,11 +83,14 @@ void _format(const char *s, va_list args, int *counter,
 	case 'x':
 	case 'X':
 	case 'o':
-	case 'c':
-	case 'p':
 	case 'b':
-		argUnsignedInt = va_arg(args, unsigned long int);
+		argUnsignedInt = va_arg(args, unsigned int);
 		action(counter, &argUnsignedInt);
+		break;
+
+	case 'p':
+		argVoid = va_arg(args, void *);
+		action(counter, argVoid);
 		break;
 	default:
 		break;

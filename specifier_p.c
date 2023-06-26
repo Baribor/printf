@@ -10,7 +10,7 @@ void specifier_p(int *counter, void *value)
 {
 	unsigned long int addr;
 
-	if (!*((int *)value))
+	if (!value)
 	{
 		*counter += _puts("(nil)");
 		return;
