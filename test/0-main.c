@@ -17,16 +17,16 @@ int main(void)
 
     s = NULL;
 
-    len = _printf("Let's try to printf a simple %    tj sentence.\n");
-    len2 = printf("Let's try to printf a simple %    tj sentence.\n");
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
     printf("len: %d,  len2: %d\n", len, len2);
 
     len = _printf("String:[%s]\n", s);
     len2 = printf("String:[%s]\n", s);
     printf("len: %d,  len2: %d\n", len, len2);
 
-    len = _printf("Character:[%c]\n", 'H');
-    len2 = printf("Character:[%c]\n", 'H');
+    len = _printf("Character:[%c]\n");
+    len2 = printf("Character:[%c]\n");
     printf("len: %d,  len2: %d\n", len, len2);
 
     len = _printf("Percent:[%%]\n");
