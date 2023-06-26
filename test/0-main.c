@@ -24,8 +24,8 @@ int main(void)
     len = _printf("%c\n", ch1);
     printf("NULL char len: %d\n", len); */
 
-    len = printf("String:[%+d]\n", -898);
-    len2 = _printf("String:[%t]\n", NULL);
+    len = printf("String:[%+  #t]\n", 898);
+    len2 = _printf("String:[%s]\n", "holif");
     printf("len: %d,  len2: %d\n", len, len2);
 
     /* len = _printf("Character:[%c]\n");

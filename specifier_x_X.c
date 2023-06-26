@@ -1,29 +1,30 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_x - Function to handle the x specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_x(int *counter, void *value)
+void specifier_x(int *counter, ...)
 {
-	unsigned int n;
+	va_list args;
 
-	n = *((unsigned int *)value);
-	print_hex(n, 1, counter);
+	va_start(args, counter);
+	print_hex(va_arg(args, unsigned int), 1, counter);
+	va_end(args);
 }
 
 /**
  * specifier_X - Function to handle the X specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_X(int *counter, void *value)
+void specifier_X(int *counter, ...)
 {
-	unsigned int n;
+	va_list args;
 
-	n = *((unsigned int *)value);
-	print_hex(n, 0, counter);
+	va_start(args, counter);
+	print_hex(va_arg(args, unsigned int), 0, counter);
+	va_end(args);
 }

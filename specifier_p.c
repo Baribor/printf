@@ -1,14 +1,19 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_p - Function to handle the c specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_p(int *counter, void *value)
+void specifier_p(int *counter, ...)
 {
+	void *value;
+	va_list args;
 	unsigned long int addr;
+
+	va_start(args, counter);
+	value = va_arg(args, void *);
 
 	if (!value)
 	{
@@ -19,4 +24,5 @@ void specifier_p(int *counter, void *value)
 	addr = *((unsigned long int *)value);
 	*counter += _puts("0x");
 	print_hex(addr, 1, counter);
+	va_end(args);
 }

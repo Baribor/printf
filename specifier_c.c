@@ -1,13 +1,16 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_c - Function to handle the c specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_c(int *counter, void *value)
+void specifier_c(int *counter, ...)
 {
-	char v = *((char *)value);
-	*counter += _putchar(v);
+	va_list args;
+
+	va_start(args, counter);
+	*counter += _putchar(va_arg(args, int));
+	va_end(args);
 }

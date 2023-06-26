@@ -1,15 +1,20 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_R - Function to handle the custom R specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_R(int *counter, void *value)
+void specifier_R(int *counter, ...)
 {
-	char *v = (char *)value;
 	int i = 0;
+	va_list args;
+	char *v;
+
+	va_start(args, counter);
+
+	v = va_arg(args, char *);
 
 	while (v[i])
 	{
@@ -18,4 +23,5 @@ void specifier_R(int *counter, void *value)
 		else
 			*counter += _putchar(v[i++]);
 	}
+	va_end(args);
 }

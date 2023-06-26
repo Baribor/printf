@@ -9,7 +9,7 @@
  * Return: Specifier action for the specifier s, NULL
  * if the specifier is not valid.
  */
-void (*get_specifier_action(char s))(int *, void *)
+void (*get_specifier_action(char s))(int *, ...)
 {
 	int i = 0;
 	specifier specifiers[] = {
@@ -48,7 +48,7 @@ void (*get_specifier_action(char s))(int *, void *)
  * Return: Void
  */
 void _format(const char *s, va_list args, int *counter,
-			 void (*action)(int *counter, void *value))
+			 void (*action)(int *counter, ...))
 {
 	char *argStr;
 	int argInt;

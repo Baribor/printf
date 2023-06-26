@@ -1,15 +1,17 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_u - Function to handle the u specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_u(int *counter, void *value)
+void specifier_u(int *counter, ...)
 {
-	unsigned int n;
+	va_list args;
 
-	n = *((unsigned int *)value);
-	*counter += print_number_unsign(n);
+	va_start(args, counter);
+
+	*counter += print_number_unsign(va_arg(args, unsigned int));
+	va_end(args);
 }

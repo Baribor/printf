@@ -1,14 +1,19 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_s - Function to handle the s specifier
  * @counter: Pointer to the character pointer
- * @value: void pointer to the value to print
  * Return: Void
  */
-void specifier_s(int *counter, void *value)
+void specifier_s(int *counter, ...)
 {
-	char *v = (char *)value;
+	va_list args;
+	char *v;
+
+	va_start(args, counter);
+
+	v = va_arg(args, char *);
 
 	if (!v)
 	{
@@ -16,4 +21,5 @@ void specifier_s(int *counter, void *value)
 		return;
 	}
 	*counter += _puts(v);
+	va_end(args);
 }

@@ -4,6 +4,17 @@
 #include <stdarg.h>
 
 /**
+ * struct i - Modifier information
+ * @alt: The # flag indicator
+ * @space: + and space flag indicator
+ */
+typedef struct i
+{
+	int alt;
+	char space;
+} specifier_info;
+
+/**
  * struct s - A modifier structure
  * @sym: The modifier character
  * @action: Formatting function
@@ -11,7 +22,7 @@
 typedef struct s
 {
 	char sym;
-	void (*action)(int *, void *);
+	void (*action)(int *, ...);
 } specifier;
 
 int _putchar(char c);
@@ -24,22 +35,26 @@ void print_oct(unsigned int num, int *c);
 int _isalpha(int a);
 char getROT13char(char c);
 int _printf(const char *format, ...);
-void specifier_c(int *counter, void *value);
-void specifier_s(int *counter, void *value);
-void specifier_S(int *counter, void *value);
-void specifier_percent(int *counter, void *value);
-void specifier_d_i(int *counter, void *value);
-void specifier_b(int *counter, void *value);
-void specifier_r(int *counter, void *value);
-void specifier_R(int *counter, void *value);
-void specifier_x(int *counter, void *value);
-void specifier_X(int *counter, void *value);
-void specifier_o(int *counter, void *value);
-void specifier_p(int *counter, void *value);
-void specifier_u(int *counter, void *value);
+void specifier_c(int *counter, ...);
+void specifier_s(int *counter, ...);
+void specifier_S(int *counter, ...);
+void specifier_percent(int *counter, ...);
+void specifier_d_i(int *counter, ...);
+void specifier_b(int *counter, ...);
+void specifier_r(int *counter, ...);
+void specifier_R(int *counter, ...);
+void specifier_x(int *counter, ...);
+void specifier_X(int *counter, ...);
+void specifier_o(int *counter, ...);
+void specifier_p(int *counter, ...);
+void specifier_u(int *counter, ...);
 
-void (*get_specifier_action(char s))(int *counter, void *value);
+int handle_format(const char *format, va_list args);
+/* sun specifiers utility functions */
+int is_flag(char c);
+
+void (*get_specifier_action(char s))(int *counter, ...);
 void _format(const char *s, va_list args, int *counter,
-			 void (*action)(int *counter, void *value));
+			 void (*action)(int *counter, ...));
 
 #endif

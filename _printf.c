@@ -12,7 +12,6 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	void (*action)(int *, void *);
 	int count = 0;
 
 	if (!format)
@@ -24,16 +23,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			action = get_specifier_action(*(++format));
-
-			if (action)
-			{
-				_format(format, args, &count, action);
-			}
-			else
-			{
-				count += _putchar(*(--format));
-			}
+			count += handle_format(format, args);
 		}
 		else
 		{
