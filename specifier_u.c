@@ -9,6 +9,12 @@
  */
 int specifier_u(va_list args, specifier_info info)
 {
-	(void)info;
-	return (print_number_unsign(va_arg(args, unsigned int)));
+	unsigned long int v;
+
+	if (info.length && info.length == 'l')
+		v = va_arg(args, unsigned long int);
+	else
+		v = va_arg(args, unsigned int);
+
+	return (print_number_unsign(v));
 }

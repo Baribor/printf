@@ -10,7 +10,12 @@
 int specifier_d_i(va_list args, specifier_info info)
 {
 	int counter = 0;
-	int v = va_arg(args, int);
+	long int v;
+
+	if (info.length && info.length == 'l')
+		v = va_arg(args, long int);
+	else
+		v = va_arg(args, int);
 
 	if (info.space && v >= 0)
 		counter += _putchar(info.space);

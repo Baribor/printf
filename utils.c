@@ -80,4 +80,5 @@ void init_specifier_info(specifier_info *info)
 	info->space = '\0';
 	info->count = 0;
 	info->modifier = '\0';
+	info->length = '\0';
 }

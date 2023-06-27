@@ -4,43 +4,37 @@
 int main(void)
 {
     int len, len2;
-    long int num = 998;
-    long long int ll_num = 1234567890123456LL;
-    unsigned long long int max_ull = -1;
+    short int s_num = 32767;
+    long int l_num = 2147483647;
+    unsigned short int us_num = 0xffff;
+    unsigned long int ul_num = 0xfffffffff;
 
-    // Test case 1: %ld specifier
-    len = _printf("Long decimal: [%ld]\n", num);
-    len2 = printf("Long decimal: [%ld]\n", num);
+    len = _printf("Long decimal: [%ld] yeah %s\n", l_num, "Says");
+    len2 = printf("Long decimal: [%ld] yeah %s\n", l_num, "Says");
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 2: %lld specifier
-    len = _printf("Long long decimal: [%lld]\n", ll_num);
-    len2 = printf("Long long decimal: [%lld]\n", ll_num);
+    len = _printf("Short decimal: [%hd]\n", s_num);
+    len2 = printf("Short decimal: [%hd]\n", s_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 3: %lx specifier
-    len = _printf("Long hexadecimal: [%lx]\n", num);
-    len2 = printf("Long hexadecimal: [%lx]\n", num);
+    len = _printf("Long hexadecimal: [%lx]\n", ul_num);
+    len2 = printf("Long hexadecimal: [%lx]\n", ul_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 4: %lX specifier
-    len = _printf("Long hexadecimal (uppercase): [%lX]\n", num);
-    len2 = printf("Long hexadecimal (uppercase): [%lX]\n", num);
+    len = _printf("Long hexadecimal (uppercase): [%lX]\n", ul_num);
+    len2 = printf("Long hexadecimal (uppercase): [%lX]\n", ul_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 5: %lu specifier
-    len = _printf("Long unsigned decimal: [%lu]\n", num);
-    len2 = printf("Long unsigned decimal: [%lu]\n", num);
+    len = _printf("Long unsigned decimal: [%lu]\n", ul_num);
+    len2 = printf("Long unsigned decimal: [%lu]\n", ul_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 6: %lo specifier
-    len = _printf("Long octal: [%lo]\n", num);
-    len2 = printf("Long octal: [%lo]\n", num);
+    len = _printf("Short unsigned decimal: [%hu]\n", us_num);
+    len2 = printf("Short unsigned decimal: [%hu]\n", us_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    // Test case 7: %llu specifier with the maximum unsigned long long value
-    len = _printf("Maximum unsigned long long decimal: [%llu]\n", max_ull);
-    len2 = printf("Maximum unsigned long long decimal: [%llu]\n", max_ull);
+    len = _printf("Long octal: [%lo]\n", ul_num);
+    len2 = printf("Long octal: [%lo]\n", ul_num);
     printf("len: %d, len2: %d\n", len, len2);
 
     return 0;

@@ -6,9 +6,9 @@
  * @c: Pointer to character counter
  * Return: Void always.
  */
-void print_oct(unsigned int num, int *c)
+void print_oct(unsigned long int num, int *c)
 {
-	unsigned int d, r;
+	unsigned long int d, r;
 
 	if (num <= 7)
 	{

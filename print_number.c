@@ -7,7 +7,7 @@
  * @n: integer to print
  * Return: void
  */
-int print_number(int n)
+int print_number(long int n)
 {
 	int digit, count = 0, temp, i;
 	int isMin = (n == INT_MIN);
@@ -57,10 +57,10 @@ int print_number(int n)
  * @n: integer to print
  * Return: void
  */
-int print_number_unsign(unsigned int n)
+int print_number_unsign(unsigned long int n)
 {
 	int count = 0, i;
-	unsigned int digit, temp;
+	unsigned long int digit, temp;
 	int char_count = 0;
 
 	if (n == 0)

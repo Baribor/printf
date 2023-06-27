@@ -4,7 +4,7 @@
 int main(void)
 {
     int len, len2;
-    int num = 0;
+    int num = -67;
     unsigned int u_num = 12345;
 
     len = _printf("Positive number with sign: [%+d]\n", num);

@@ -15,6 +15,10 @@ specifier_info get_info(const char *format)
 
 			fill_flag_info(&info, format[i]);
 		}
+		else if (is_length(format[i]))
+		{
+			info.length = format[i];
+		}
 		else if (is_modifier(format[i]))
 		{
 			info.modifier = format[i];

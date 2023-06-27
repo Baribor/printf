@@ -7,6 +7,7 @@
  * struct i - Modifier information
  * @alt: The # flag indicator
  * @space: + and space flag indicator
+ * @length: length flag indicator
  * @count: Chars that make up the specifier
  * @modifier: The modifier to use
  */
@@ -14,6 +15,7 @@ typedef struct i
 {
 	int alt;
 	char space;
+	char length;
 	char modifier;
 	int count;
 } specifier_info;
@@ -31,11 +33,11 @@ typedef struct s
 
 int _putchar(char c);
 int _puts(char *s);
-int print_number(int n);
-int print_number_unsign(unsigned int n);
+int print_number(long int n);
+int print_number_unsign(unsigned long int n);
 void print_bin(int *counter, unsigned int num);
 void print_hex(unsigned long int num, int lower, int *c);
-void print_oct(unsigned int num, int *c);
+void print_oct(unsigned long int num, int *c);
 int _isalpha(int a);
 char getROT13char(char c);
 int _printf(const char *format, ...);
@@ -56,6 +58,7 @@ int specifier_u(va_list, specifier_info);
 int handle_format(const char *format, va_list args, specifier_info info);
 /* sun specifiers utility functions */
 int is_flag(char c);
+int is_length(char c);
 int is_modifier(char c);
 
 specifier_info get_info(const char *format);

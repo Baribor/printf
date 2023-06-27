@@ -11,6 +11,16 @@ int is_flag(char c)
 }
 
 /**
+ * is_length - Checks if the char is a flag
+ * @c: Char to check
+ * Return: 1 if flag else 0
+ */
+int is_length(char c)
+{
+	return (c == 'l' || c == 'h');
+}
+
+/**
  * is_modifier - Checks if a char is a modifier
  * @c: Char to check
  * Return: 1 if true else 0
