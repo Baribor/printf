@@ -10,8 +10,10 @@
 int specifier_o(va_list args, specifier_info info)
 {
 	int counter = 0;
+	unsigned int v = va_arg(args, unsigned int);
 
-	(void)info;
-	print_oct(va_arg(args, unsigned int), &counter);
+	if (info.alt && v > 0)
+		counter += _puts("0");
+	print_oct(v, &counter);
 	return (counter);
 }

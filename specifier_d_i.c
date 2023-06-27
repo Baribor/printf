@@ -9,6 +9,12 @@
  */
 int specifier_d_i(va_list args, specifier_info info)
 {
-	(void)info;
-	return (print_number(va_arg(args, int)));
+	int counter = 0;
+	int v = va_arg(args, int);
+
+	if (info.space && v >= 0)
+		counter += _putchar(info.space);
+
+	counter += print_number(v);
+	return (counter);
 }

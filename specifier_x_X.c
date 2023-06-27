@@ -10,9 +10,12 @@
 int specifier_x(va_list args, specifier_info info)
 {
 	int counter = 0;
+	unsigned int v = va_arg(args, unsigned int);
 
-	(void)info;
-	print_hex(va_arg(args, unsigned int), 1, &counter);
+	if (info.alt && v > 0)
+		counter += _puts("0x");
+
+	print_hex(v, 1, &counter);
 	return (counter);
 }
 
@@ -25,8 +28,10 @@ int specifier_x(va_list args, specifier_info info)
 int specifier_X(va_list args, specifier_info info)
 {
 	int counter = 0;
+	unsigned int v = va_arg(args, unsigned int);
 
-	(void)info;
-	print_hex(va_arg(args, unsigned int), 0, &counter);
+	if (info.alt && v > 0)
+		counter += _puts("0X");
+	print_hex(v, 0, &counter);
 	return (counter);
 }

@@ -6,6 +6,8 @@ specifier_info get_info(const char *format)
 	int i = 1;
 	specifier_info info;
 
+	init_specifier_info(&info);
+
 	while (format[i])
 	{
 		if (is_flag(format[i]))

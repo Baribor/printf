@@ -68,3 +68,16 @@ char getROT13char(char c)
 
 	return (c < 91 ? rot13Upper[c - 65] : rot13Lower[c - 97]);
 }
+
+/**
+ * init_specifier_info - Initializes the specifier info
+ * @info: pointer to the info to initialize
+ * Return: Void
+ */
+void init_specifier_info(specifier_info *info)
+{
+	info->alt = 0;
+	info->space = '\0';
+	info->count = 0;
+	info->modifier = '\0';
+}

@@ -60,6 +60,7 @@ int is_modifier(char c);
 
 specifier_info get_info(const char *format);
 void fill_flag_info(specifier_info *info, char flag);
+void init_specifier_info(specifier_info *info);
 
 int (*get_specifier_action(char s))(va_list, specifier_info);
 
