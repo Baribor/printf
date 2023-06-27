@@ -81,4 +81,15 @@ void init_specifier_info(specifier_info *info)
 	info->count = 0;
 	info->modifier = '\0';
 	info->length = '\0';
+	info->width = 0;
+}
+
+/**
+ * is_digit - Checks if a char is digit
+ * @c: Char to check
+ * Return: 1 if true else 0
+ */
+int is_digit(char c)
+{
+	return (c >= 48 && c <= 57);
 }

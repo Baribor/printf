@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			info = get_info(format);
+			info = get_info(format, args);
 			count += handle_format(format, args, info);
 			format += info.count;
 		}

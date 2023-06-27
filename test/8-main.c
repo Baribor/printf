@@ -17,8 +17,8 @@ int main(void)
     len2 = printf("Short decimal: [%hd]\n", s_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Long hexadecimal: [%lx]\n", ul_num);
-    len2 = printf("Long hexadecimal: [%lx]\n", ul_num);
+    len = printf("Long hexadecimal: [%rX]\n", ul_num);
+    len2 = _printf("Long hexadecimal: [%mx]\n", ul_num);
     printf("len: %d, len2: %d\n", len, len2);
 
     len = _printf("Long hexadecimal (uppercase): [%lX]\n", ul_num);

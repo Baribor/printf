@@ -10,12 +10,26 @@
 int specifier_s(va_list args, specifier_info info)
 {
 	char *v;
+	int len = 0, counter = 0;
 
-	(void)info;
 	v = va_arg(args, char *);
 
 	if (!v)
 		return (_puts("(null)"));
 
-	return (_puts(v));
+	while (v[len])
+		len++;
+
+	if (info.width)
+	{
+		if (len < info.width)
+		{
+			len = info.width - len;
+			counter += len;
+			print_space(len);
+		}
+	}
+	counter += _puts(v);
+
+	return (counter);
 }

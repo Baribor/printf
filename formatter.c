@@ -1,7 +1,13 @@
 #include <stdarg.h>
 #include "main.h"
 
-specifier_info get_info(const char *format)
+/**
+ * specifier_info - Sets specifier data
+ * @format: The string to format
+ * @args: Arguments
+ * Return: The specifier info object
+ */
+specifier_info get_info(const char *format, va_list args)
 {
 	int i = 1;
 	specifier_info info;
@@ -12,19 +18,33 @@ specifier_info get_info(const char *format)
 	{
 		if (is_flag(format[i]))
 		{
-
 			fill_flag_info(&info, format[i]);
+			i++;
 		}
 		else if (is_length(format[i]))
 		{
 			info.length = format[i];
+			i++;
+		}
+		else if (is_digit(format[i]) || format[i] == '*')
+		{
+			if (format[i] == '*')
+			{
+				info.width = va_arg(args, int);
+				i++;
+				continue;
+			}
+			i += fill_width(&info, format, i);
 		}
 		else if (is_modifier(format[i]))
 		{
 			info.modifier = format[i];
 			break;
 		}
-		i++;
+		else
+		{
+			i++;
+		}
 	}
 	info.count = i;
 	return (info);

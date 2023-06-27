@@ -33,3 +33,34 @@ int is_modifier(char c)
 		return (0);
 	return (1);
 }
+
+/**
+ * print_space - Peints the space char c times
+ * @c: Number of times to print
+ * Return: Void
+ */
+void print_space(int c)
+{
+	int i;
+
+	for (i = 0; i < c; ++i)
+		_putchar(' ');
+}
+
+/**
+ * _pow - Returns the power of a number
+ * @x: Base
+ * @y: Index
+ * Return: x to the power of y
+ */
+int _pow(int x, int y)
+{
+	int res = 1;
+	int i;
+
+	for (i = 0; i < y; i++)
+	{
+		res *= x;
+	}
+	return (res);
+}
