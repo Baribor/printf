@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
+	specifier_info info;
 
 	if (!format)
 		return (-1);
@@ -23,7 +24,9 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			count += handle_format(format, args);
+			info = get_info(format);
+			count += handle_format(format, args, info);
+			format += info.count;
 		}
 		else
 		{
@@ -34,6 +37,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-
 	return (count);
 }

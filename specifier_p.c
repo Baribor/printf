@@ -3,26 +3,24 @@
 
 /**
  * specifier_p - Function to handle the c specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_p(int *counter, ...)
+int specifier_p(va_list args, specifier_info info)
 {
 	void *value;
-	va_list args;
 	unsigned long int addr;
+	int counter = 0;
 
-	va_start(args, counter);
+	(void)info;
 	value = va_arg(args, void *);
 
 	if (!value)
-	{
-		*counter += _puts("(nil)");
-		return;
-	}
+		return (_puts("(nil)"));
 
 	addr = *((unsigned long int *)value);
-	*counter += _puts("0x");
-	print_hex(addr, 1, counter);
-	va_end(args);
+	counter += _puts("0x");
+	print_hex(addr, 1, &counter);
+	return (counter);
 }

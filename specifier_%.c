@@ -1,11 +1,16 @@
+#include <stdarg.h>
 #include "main.h"
 
 /**
  * specifier_percent - Function to handle the % specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_percent(int *counter, ...)
+int specifier_percent(va_list args, specifier_info info)
 {
-	*counter += _putchar('%');
+	(void)info;
+	(void)args;
+
+	return (_putchar('%'));
 }

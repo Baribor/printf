@@ -3,15 +3,15 @@
 
 /**
  * specifier_b - Function to handle the b custom specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_b(int *counter, ...)
+int specifier_b(va_list args, specifier_info info)
 {
-	va_list args;
+	int counter = 0;
 
-	va_start(args, counter);
-	print_bin(counter, va_arg(args, unsigned int));
-
-	va_end(args);
+	(void)info;
+	print_bin(&counter, va_arg(args, unsigned int));
+	return (counter);
 }

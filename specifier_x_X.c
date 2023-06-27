@@ -3,28 +3,30 @@
 
 /**
  * specifier_x - Function to handle the x specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_x(int *counter, ...)
+int specifier_x(va_list args, specifier_info info)
 {
-	va_list args;
+	int counter = 0;
 
-	va_start(args, counter);
-	print_hex(va_arg(args, unsigned int), 1, counter);
-	va_end(args);
+	(void)info;
+	print_hex(va_arg(args, unsigned int), 1, &counter);
+	return (counter);
 }
 
 /**
  * specifier_X - Function to handle the X specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_X(int *counter, ...)
+int specifier_X(va_list args, specifier_info info)
 {
-	va_list args;
+	int counter = 0;
 
-	va_start(args, counter);
-	print_hex(va_arg(args, unsigned int), 0, counter);
-	va_end(args);
+	(void)info;
+	print_hex(va_arg(args, unsigned int), 0, &counter);
+	return (counter);
 }

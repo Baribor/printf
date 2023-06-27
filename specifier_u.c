@@ -3,15 +3,12 @@
 
 /**
  * specifier_u - Function to handle the u specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_u(int *counter, ...)
+int specifier_u(va_list args, specifier_info info)
 {
-	va_list args;
-
-	va_start(args, counter);
-
-	*counter += print_number_unsign(va_arg(args, unsigned int));
-	va_end(args);
+	(void)info;
+	return (print_number_unsign(va_arg(args, unsigned int)));
 }

@@ -3,14 +3,15 @@
 
 /**
  * specifier_o - Function to handle the c specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_o(int *counter, ...)
+int specifier_o(va_list args, specifier_info info)
 {
-	va_list args;
+	int counter = 0;
 
-	va_start(args, counter);
-	print_oct(va_arg(args, unsigned int), counter);
-	va_end(args);
+	(void)info;
+	print_oct(va_arg(args, unsigned int), &counter);
+	return (counter);
 }

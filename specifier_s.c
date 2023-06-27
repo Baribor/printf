@@ -3,23 +3,19 @@
 
 /**
  * specifier_s - Function to handle the s specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_s(int *counter, ...)
+int specifier_s(va_list args, specifier_info info)
 {
-	va_list args;
 	char *v;
 
-	va_start(args, counter);
-
+	(void)info;
 	v = va_arg(args, char *);
 
 	if (!v)
-	{
-		*counter += _puts("(null)");
-		return;
-	}
-	*counter += _puts(v);
-	va_end(args);
+		return (_puts("(null)"));
+
+	return (_puts(v));
 }

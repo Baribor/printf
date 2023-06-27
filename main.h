@@ -7,11 +7,15 @@
  * struct i - Modifier information
  * @alt: The # flag indicator
  * @space: + and space flag indicator
+ * @count: Chars that make up the specifier
+ * @modifier: The modifier to use
  */
 typedef struct i
 {
 	int alt;
 	char space;
+	char modifier;
+	int count;
 } specifier_info;
 
 /**
@@ -22,7 +26,7 @@ typedef struct i
 typedef struct s
 {
 	char sym;
-	void (*action)(int *, ...);
+	int (*action)(va_list, specifier_info);
 } specifier;
 
 int _putchar(char c);
@@ -35,26 +39,28 @@ void print_oct(unsigned int num, int *c);
 int _isalpha(int a);
 char getROT13char(char c);
 int _printf(const char *format, ...);
-void specifier_c(int *counter, ...);
-void specifier_s(int *counter, ...);
-void specifier_S(int *counter, ...);
-void specifier_percent(int *counter, ...);
-void specifier_d_i(int *counter, ...);
-void specifier_b(int *counter, ...);
-void specifier_r(int *counter, ...);
-void specifier_R(int *counter, ...);
-void specifier_x(int *counter, ...);
-void specifier_X(int *counter, ...);
-void specifier_o(int *counter, ...);
-void specifier_p(int *counter, ...);
-void specifier_u(int *counter, ...);
+int specifier_c(va_list, specifier_info);
+int specifier_s(va_list, specifier_info);
+int specifier_S(va_list, specifier_info);
+int specifier_percent(va_list, specifier_info);
+int specifier_d_i(va_list, specifier_info);
+int specifier_b(va_list, specifier_info);
+int specifier_r(va_list, specifier_info);
+int specifier_R(va_list, specifier_info);
+int specifier_x(va_list, specifier_info);
+int specifier_X(va_list, specifier_info);
+int specifier_o(va_list, specifier_info);
+int specifier_p(va_list, specifier_info);
+int specifier_u(va_list, specifier_info);
 
-int handle_format(const char *format, va_list args);
+int handle_format(const char *format, va_list args, specifier_info info);
 /* sun specifiers utility functions */
 int is_flag(char c);
+int is_modifier(char c);
 
-void (*get_specifier_action(char s))(int *counter, ...);
-void _format(const char *s, va_list args, int *counter,
-			 void (*action)(int *counter, ...));
+specifier_info get_info(const char *format);
+void fill_flag_info(specifier_info *info, char flag);
+
+int (*get_specifier_action(char s))(va_list, specifier_info);
 
 #endif

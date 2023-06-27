@@ -3,25 +3,25 @@
 
 /**
  * specifier_R - Function to handle the custom R specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_R(int *counter, ...)
+int specifier_R(va_list args, specifier_info info)
 {
 	int i = 0;
-	va_list args;
+	int counter = 0;
 	char *v;
 
-	va_start(args, counter);
-
+	(void)info;
 	v = va_arg(args, char *);
 
 	while (v[i])
 	{
 		if (_isalpha(v[i]))
-			*counter += _putchar(getROT13char(v[i++]));
+			counter += _putchar(getROT13char(v[i++]));
 		else
-			*counter += _putchar(v[i++]);
+			counter += _putchar(v[i++]);
 	}
-	va_end(args);
+	return (counter);
 }

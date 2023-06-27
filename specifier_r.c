@@ -3,23 +3,23 @@
 
 /**
  * specifier_r - Function to handle the custom r specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_r(int *counter, ...)
+int specifier_r(va_list args, specifier_info info)
 {
 	int len = 0;
-	va_list args;
 	char *v;
+	int counter = 0;
 
-	va_start(args, counter);
-
+	(void)info;
 	v = va_arg(args, char *);
 
 	while (v[len])
 		len++;
 
 	while (len > 0)
-		*counter += _putchar(v[--len]);
-	va_end(args);
+		counter += _putchar(v[--len]);
+	return (counter);
 }

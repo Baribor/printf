@@ -3,14 +3,12 @@
 
 /**
  * specifier_c - Function to handle the c specifier
- * @counter: Pointer to the character pointer
+ * @args: Argument list
+ * @info: Specifier info
  * Return: Void
  */
-void specifier_c(int *counter, ...)
+int specifier_c(va_list args, specifier_info info)
 {
-	va_list args;
-
-	va_start(args, counter);
-	*counter += _putchar(va_arg(args, int));
-	va_end(args);
+	(void)info;
+	return (_putchar(va_arg(args, int)));
 }
