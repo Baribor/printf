@@ -18,7 +18,7 @@ int specifier_c(va_list args, specifier_info info)
 		{
 			len = info.width - len;
 			counter += len;
-			print_space(len);
+			print_char_times(len, ' ');
 		}
 	}
 

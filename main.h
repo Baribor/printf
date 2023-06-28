@@ -9,6 +9,7 @@
  * @space: + and space flag indicator
  * @length: length flag indicator
  * @width: width flag indicator
+ * @precision: Precision indicator
  * @count: Chars that make up the specifier
  * @modifier: The modifier to use
  */
@@ -18,6 +19,7 @@ typedef struct i
 	char space;
 	char length;
 	int width;
+	int precision;
 	char modifier;
 	int count;
 } specifier_info;
@@ -35,6 +37,7 @@ typedef struct s
 
 int _putchar(char c);
 int _puts(char *s);
+int _puts_times(char *s, int n);
 int print_number(long int n);
 int print_number_unsign(unsigned long int n);
 void print_bin(int *counter, unsigned int num);
@@ -63,12 +66,13 @@ int handle_format(const char *format, va_list args, specifier_info info);
 int is_flag(char c);
 int is_length(char c);
 int is_modifier(char c);
-void print_space(int c);
+void print_char_times(int n, char c);
 int _pow(int x, int y);
 
 specifier_info get_info(const char *format, va_list args);
 void fill_flag_info(specifier_info *info, char flag);
 int fill_width(specifier_info *info, const char *s, int i);
+int fill_precision(specifier_info *info, const char *s, int i);
 void init_specifier_info(specifier_info *info);
 
 int get_int_length(long int n, int radix);

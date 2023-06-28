@@ -20,14 +20,25 @@ int specifier_o(va_list args, specifier_info info)
 
 	if (info.alt && v > 0)
 		len += 1;
+
+	len += get_int_length(v, 8);
+	if (info.precision > -1)
+	{
+		if (len < info.precision)
+		{
+			len = info.precision - len;
+			counter += len;
+			print_char_times(len, '0');
+		}
+	}
+
 	if (info.width)
 	{
-		len += get_int_length(v, 8);
 		if (len < info.width)
 		{
 			len = info.width - len;
 			counter += len;
-			print_space(len);
+			print_char_times(len, ' ');
 		}
 	}
 

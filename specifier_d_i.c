@@ -18,22 +18,35 @@ int specifier_d_i(va_list args, specifier_info info)
 	else
 		v = va_arg(args, int);
 
+	len = get_int_length(v, 10);
+
+	if (info.precision > -1)
+	{
+		if (len < info.precision)
+		{
+			len = info.precision - len;
+			counter += len;
+			if (v < 0)
+				counter += _putchar('-');
+			print_char_times(len, '0');
+		}
+	}
+
 	if (info.width)
 	{
-		len = get_int_length(v, 10);
 		if (v < 0)
 			len++;
 		if (len < info.width)
 		{
 			len = info.width - len;
 			counter += len;
-			print_space(len);
+			print_char_times(len, ' ');
 		}
 	}
 
 	if (info.space && v >= 0)
 		counter += _putchar(info.space);
 
-	counter += print_number(v);
+	counter += print_number(info.precision > -1 && v < 0 ? -1 * v : v);
 	return (counter);
 }

@@ -20,16 +20,16 @@ int specifier_s(va_list args, specifier_info info)
 	while (v[len])
 		len++;
 
-	if (info.width)
+	if (info.precision > -1)
+		len = info.precision;
+
+	if (info.width && len < info.width)
 	{
-		if (len < info.width)
-		{
-			len = info.width - len;
-			counter += len;
-			print_space(len);
-		}
+		len = info.width - len;
+		counter += len;
+		print_char_times(len, ' ');
 	}
-	counter += _puts(v);
+	counter += info.precision > -1 ? _puts_times(v, info.precision) : _puts(v);
 
 	return (counter);
 }

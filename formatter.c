@@ -13,18 +13,15 @@ specifier_info get_info(const char *format, va_list args)
 	specifier_info info;
 
 	init_specifier_info(&info);
-
 	while (format[i])
 	{
 		if (is_flag(format[i]))
 		{
-			fill_flag_info(&info, format[i]);
-			i++;
+			fill_flag_info(&info, format[i++]);
 		}
 		else if (is_length(format[i]))
 		{
-			info.length = format[i];
-			i++;
+			info.length = format[i++];
 		}
 		else if (is_digit(format[i]) || format[i] == '*')
 		{
@@ -35,6 +32,10 @@ specifier_info get_info(const char *format, va_list args)
 				continue;
 			}
 			i += fill_width(&info, format, i);
+		}
+		else if (format[i] == '.')
+		{
+			i += fill_precision(&info, format, i);
 		}
 		else if (is_modifier(format[i]))
 		{

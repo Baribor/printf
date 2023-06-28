@@ -82,6 +82,7 @@ void init_specifier_info(specifier_info *info)
 	info->modifier = '\0';
 	info->length = '\0';
 	info->width = 0;
+	info->precision = -1;
 }
 
 /**

@@ -35,16 +35,17 @@ int is_modifier(char c)
 }
 
 /**
- * print_space - Peints the space char c times
- * @c: Number of times to print
+ * print_char_times - Peints the space char c times
+ * @c: Char to print
+ * @n: Number of times to print
  * Return: Void
  */
-void print_space(int c)
+void print_char_times(int n, char c)
 {
 	int i;
 
-	for (i = 0; i < c; ++i)
-		_putchar(' ');
+	for (i = 0; i < n; ++i)
+		_putchar(c);
 }
 
 /**
