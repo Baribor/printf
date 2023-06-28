@@ -21,6 +21,7 @@ int specifier_p(va_list args, specifier_info info)
 
 	addr = *((unsigned long int *)value);
 	counter += _puts("0x");
-	print_hex(addr, 1, &counter);
+	counter += get_int_length(addr, 16);
+	print_hex(addr, 1);
 	return (counter);
 }

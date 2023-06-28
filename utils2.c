@@ -16,3 +16,14 @@ int get_int_length(long int n, int radix)
 	}
 	return (len);
 }
+
+/**
+ * _max - Get the max of two int
+ * @a: First int
+ * @b: Second int
+ * Return: The max int
+ */
+int _max(int a, int b)
+{
+	return (a > b ? a : b);
+}

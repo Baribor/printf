@@ -41,8 +41,8 @@ int _puts_times(char *s, int n);
 int print_number(long int n);
 int print_number_unsign(unsigned long int n);
 void print_bin(int *counter, unsigned int num);
-void print_hex(unsigned long int num, int lower, int *c);
-void print_oct(unsigned long int num, int *c);
+void print_hex(unsigned long int num, int lower);
+void print_oct(unsigned long int num);
 int _isalpha(int a);
 int is_digit(char c);
 char getROT13char(char c);
@@ -76,6 +76,7 @@ int fill_precision(specifier_info *info, const char *s, int i);
 void init_specifier_info(specifier_info *info);
 
 int get_int_length(long int n, int radix);
+int _max(int a, int b);
 
 int (*get_specifier_action(char s))(va_list, specifier_info);
 

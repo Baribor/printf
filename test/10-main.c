@@ -7,28 +7,28 @@ int main(void)
     int num = 42;
     unsigned int u_num = 12345;
 
-    len = _printf("Precision: [%.4d]\n", num);
-    len2 = printf("Precision: [%.4d]\n", num);
+    len = _printf("Precision: [%6.4d]\n", num);
+    len2 = printf("Precision: [%6.4d]\n", num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Precision: [%.4d]\n", -42);
-    len2 = printf("Precision: [%.4d]\n", -42);
+    len = _printf("Precision: [%6.4d]\n", -42);
+    len2 = printf("Precision: [%6.4d]\n", -42);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Precision: [%.6x]\n", num);
-    len2 = printf("Precision: [%.6x]\n", num);
+    len = _printf("Precision: [%8.6x]\n", num);
+    len2 = printf("Precision: [%8.6x]\n", num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Precision: [%.3X]\n", num);
-    len2 = printf("Precision: [%.3X]\n", num);
+    len = _printf("Precision: [%5.3X]\n", num);
+    len2 = printf("Precision: [%5.3X]\n", num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Precision: [%.5u]\n", u_num);
-    len2 = printf("Precision: [%.5u]\n", u_num);
+    len = _printf("Precision: [%8.5u]\n", u_num);
+    len2 = printf("Precision: [%8.5u]\n", u_num);
     printf("len: %d, len2: %d\n", len, len2);
 
-    len = _printf("Precision: [%.o]\n", num);
-    len2 = printf("Precision: [%.o]\n", num);
+    len = _printf("Precision: [%7.4o]\n", num);
+    len2 = printf("Precision: [%7.4o]\n", num);
     printf("len: %d, len2: %d\n", len, len2);
 
     len = _printf("Precision: [%8.1s]\n", "Hello");
